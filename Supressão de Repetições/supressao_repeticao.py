@@ -3,9 +3,6 @@
 ################################################################
 
 # Pegue o arquivo .txt (em modo escrita) que irá armezenar o resultado da compressão
-from unittest import result
-
-
 arquivo2 = open("d:/Supressão de Repetições/arquivo_compressão.txt", "w")
 
 # Pegue o arquivo .txt (em modo escrita) que irá armezenar o resultado da descompressão
@@ -73,23 +70,35 @@ def compressao(texto, flag, repeticao):
                 lista.append(flag)
 
                 # Adicione o contador
-                lista.append(str(contador)) 
-            
-            # Adicione o caractere
-            lista.append(car)
+                lista.append(str(contador))
 
-            # Troque o caractere que estamos observando
-            car = caracteres[i]
+                # Adicione o caractere
+                lista.append(car)
 
-            # Reinicie a contagem
-            contador = 1
+                # Troque o caractere que estamos observando
+                car = caracteres[i]
+
+                # Reinicie a contagem
+                contador = 1
+            else:
+                # Adicione o caractere atual
+                for j in range(0, contador):
+                    lista.append(car)
+                
+                # Troque o caractere que estamos observando
+                car = caracteres[i]
+
+                # Reinicie a contagem
+                contador = 1
     
     # Última tentativa do algoritmo
     if contador >= repeticao:
         lista.append(flag)
-        lista.append(str(contador)) 
-
-    lista.append(car)
+        lista.append(str(contador))
+        lista.append(car)
+    else:
+        for j in range(0, contador):
+            lista.append(car)
 
     # String que irá juntar os caracteres da lista comprimida
     resultado = ""
