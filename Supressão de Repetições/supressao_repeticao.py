@@ -1,12 +1,29 @@
 ################################################################
+#                          DIRETÓRIO                           #
+################################################################
+
+# Importe o módulo Path da biblioteca de manipulação de caminhos
+from pathlib import Path
+
+# Importe o módulo de manipulação de recursos do SO
+import os
+
+# Pegue o caminho absoluto do arquivo python
+caminho_codigo = Path(__file__).absolute()
+
+# Troque o diretório de trabalho atual, para o diretório em que o arquivo python está
+os.chdir(str(caminho_codigo).replace("supressao_repeticao.py", ""))
+
+
+################################################################
 #                            ARQUIVOS                          #  
 ################################################################
 
 # Pegue o arquivo .txt (em modo escrita) que irá armezenar o resultado da compressão
-arquivo2 = open("d:/Supressão de Repetições/arquivo_compressão.txt", "w")
+arquivo2 = open("arquivo_compressão.txt", "w")
 
 # Pegue o arquivo .txt (em modo escrita) que irá armezenar o resultado da descompressão
-arquivo3 = open("d:/Supressão de Repetições/arquivo_descompressão.txt", "w")
+arquivo3 = open("arquivo_descompressão.txt", "w")
 
 
 ################################################################
@@ -15,7 +32,7 @@ arquivo3 = open("d:/Supressão de Repetições/arquivo_descompressão.txt", "w")
 
 
 # Pegue o arquivo .txt (em modo leitura) com o texto original e converta para string 
-arquivo1_txt = open("d:/Supressão de Repetições/arquivo_original.txt", "r").read()
+arquivo1_txt = open("arquivo_original.txt", "r").read()
 
 arquivo2_txt = ""
 

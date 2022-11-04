@@ -1,4 +1,21 @@
 ################################################################
+#                          DIRETÓRIO                           #
+################################################################
+
+# Importe o módulo Path da biblioteca de manipulação de caminhos
+from pathlib import Path
+
+# Importe o módulo de manipulação de recursos do SO
+import os
+
+# Pegue o caminho absoluto do arquivo python
+caminho_codigo = Path(__file__).absolute()
+
+# Troque o diretório de trabalho atual, para o diretório em que o arquivo python está
+os.chdir(str(caminho_codigo).replace("supressao_branco.py", ""))
+
+
+################################################################
 #                            ARQUIVOS                          #
 ################################################################
 
